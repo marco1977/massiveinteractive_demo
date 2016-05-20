@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('massiveInteract2016',[	
+  angular.module('massiveinteracteDemo',[	
     	'ngAnimate', 
     	'ngCookies', 
     	'ngTouch', 

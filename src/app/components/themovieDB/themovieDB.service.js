@@ -2,7 +2,7 @@
     'use strict';
     
     angular
-        .module('massiveInteract2016')
+        .module('massiveinteracteDemo')
         .service('themovieDBSrv', themovieDB);
 
     /** @ngInject */
