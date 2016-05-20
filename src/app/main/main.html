@@ -15,24 +15,21 @@
   
     <!-- Insert -->
     <div class="row">
-        <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.movieResults | orderBy:'rank'">
+        <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.movieResults | orderBy: 'rank' ">
 
             <div class="thumbnail">
-                <h2>{{awesomeThing.title}}</h2>
-
-                <div class="images">
+                <figure class="images">
                     <img ng-src="{{awesomeThing.poster_path && 'https://image.tmdb.org/t/p/w185/' + awesomeThing.poster_path || 'http://placehold.it/185x278?text=no+IMG'}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
-                </div>
+                    <figcaption>Year: <span>{{awesomeThing.release_date | date:'yyyy'}}</span></figcaption>
+                </figure>
 
-                <h3 ng-show="awesomeThing.overview.length">Overview</h3>
-                <p>{{awesomeThing.overview}}</p>
-                <div class="info">
-                    <ul>
-                        <li>Year: <span>{{awesomeThing.release_date}}</span></li>
-                    </ul>
-                </div>
-
-
+                <article>
+                    <h2>{{awesomeThing.title}}</h2>
+                    <h3 ng-show="awesomeThing.overview.length">Overview</h3>
+                    <p>{{awesomeThing.overview}}</p>
+                </article>
+                
+                
             </div>
         </div>
     </div>

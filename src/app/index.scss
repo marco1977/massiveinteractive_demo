@@ -28,6 +28,7 @@ $black: #000;
 	font-family: 'Lato', sans-serif;
 	h1 {
 		color: $white;
+		margin: 10px;
 	}
 
 	form {
@@ -54,35 +55,55 @@ $black: #000;
 
 	.thumbnail {
 		padding: 1em; 
-		h2 {
-			font-weight: 800;
-			font-size: 1em;
-			margin-top: 0;
-		}
-		h3 {
-			font-weight: 800;
-			font-size: 0.8em;
-			margin-top: 0;
-			color: $black;
-			text-decoration: underline;
-		}
-		height: 300px;
+		height: 250px;
 		overflow: hidden;
+
+		article {
+			float: right;
+			width: 64%;
+			h2 {
+				font-weight: 800;
+				font-size: 1em;
+				margin-top: 0;
+			}
+			h3 {
+				font-weight: 800;
+				font-size: 0.8em;
+				margin-top: 0;
+				color: $black;
+				text-decoration: underline;
+				}
+			
+			p {
+				line-height: 110%;
+				font-weight: 400;
+				font-size: 0.9em;
+				color: $black;
+			}
+		}
 		
-		img {
-			display: block;
+		
+		figure{
 			float: left;
-			width: 6em;
-			border: 1px solid $grey;
+			width: 30%;
 			margin-right: 1em; 
+			border-bottom: 1px solid $grey;
+			margin-bottom: 1em;
+			img {
+				display: block;
+				border: 1px solid $grey;
+				max-width: 100%;
+				margin-bottom: 0.5em;
+			}
+			figcaption {
+				font-size: 0.9em;
+				span {
+					font-weight: 900;
+				}
+			}
 		}
 
-		p {
-			line-height: 110%;
-			font-weight: 400;
-			font-size: 0.9em;
-			color: $black;
-		}
+		
 	}
 
 	@media only screen and (max-width: 768px) {
