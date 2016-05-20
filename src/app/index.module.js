@@ -1,7 +1,17 @@
 (function() {
   'use strict';
 
-  angular
-    .module('massiveinteracteDemo', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr']);
+  angular.module('massiveInteract2016',[	
+    	'ngAnimate', 
+    	'ngCookies', 
+    	'ngTouch', 
+    	'ngSanitize', 
+    	'ngMessages', 
+    	'ngAria', 
+    	'ui.router', 
+    	'ui.bootstrap', 
+    	'toastr', 
+    	'angular-szn-autocomplete'
+    ]);
 
 })();
