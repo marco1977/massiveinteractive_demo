@@ -20,12 +20,13 @@
 
             <div class="thumbnail">
                 <h2>{{awesomeThing.title}}</h2>
-                <img ng-src="https://image.tmdb.org/t/p/w185/{{awesomeThing.poster_path}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
+
+                 <img ng-src="{{awesomeThing.poster_path && 'https://image.tmdb.org/t/p/w185/' + awesomeThing.poster_path || 'http://placehold.it/185x278?text=no+IMG'}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
+
                 <h3>Overview</h3>
                 <p>{{awesomeThing.overview}}</p>
                 <div class="info">
                     <ul>
-                        <li>Original Language: <span>{{}}</span></li>
                         <li>Year: <span>{{awesomeThing.release_date}}</span></li>
                     </ul>
                 </div>

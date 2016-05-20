@@ -1,39 +1,30 @@
 (function() {
-  'use strict';
+    'use strict';
+    angular.module('massiveinteracteDemo').controller('MainController', MainController);
 
-  angular
-    .module('massiveinteracteDemo')
-    .controller('MainController', MainController);
+    /** @ngInject */
+    function MainController($timeout, $scope, $http, webDevTec, toastr, themovieDBSrv) {
+        var vm = this;
+        vm.awesomeThings = [];
+        vm.classAnimation = '';
+        vm.creationDate = 1463664778965;
+        //vm.showToastr = showToastr;
+        vm.movieResults = [];
 
-  /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    var vm = this;
-
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1463728552747;
-    vm.showToastr = showToastr;
-
-    activate();
-
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
+        $scope.options = {
+            shadowInput: true,
+            highlightFirst: true,       
+            searchMethod: "getMovies",
+            templateUrl: "app/main/template_option.html"
+        };
+   
+        $scope.getMovies = function (movie, deferred) { 
+            return themovieDBSrv.asyncSearch(movie).then(
+                (function (deferred, data) {   
+                    vm.movieResults = data.results;
+                    deferred.resolve({results: data.results});
+                }).bind(this, deferred)
+            );
+        }
     }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
-  }
 })();
