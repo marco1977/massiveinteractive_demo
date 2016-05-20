@@ -8,22 +8,23 @@
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <form>
-               <!--  <input type="text" ng-model="query" szn-autocomplete="main.getOptions()"> -->
-               <input type="text" ng-model="query" szn-autocomplete="options"> 
+               <input type="text" class="input_ac" ng-model="query" szn-autocomplete="options"> 
             </form>
         </div>
     </div>
   
     <!-- Insert -->
     <div class="row">
-        <div class="col-sm-6 col-md-3" ng-repeat="awesomeThing in main.movieResults | orderBy:'rank'">
+        <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.movieResults | orderBy:'rank'">
 
             <div class="thumbnail">
                 <h2>{{awesomeThing.title}}</h2>
 
-                 <img ng-src="{{awesomeThing.poster_path && 'https://image.tmdb.org/t/p/w185/' + awesomeThing.poster_path || 'http://placehold.it/185x278?text=no+IMG'}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
+                <div class="images">
+                    <img ng-src="{{awesomeThing.poster_path && 'https://image.tmdb.org/t/p/w185/' + awesomeThing.poster_path || 'http://placehold.it/185x278?text=no+IMG'}}" title="{{awesomeThing.title}}" alt="{{awesomeThing.title}}">
+                </div>
 
-                <h3>Overview</h3>
+                <h3 ng-show="awesomeThing.overview.length">Overview</h3>
                 <p>{{awesomeThing.overview}}</p>
                 <div class="info">
                     <ul>
