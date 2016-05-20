@@ -1,29 +1,32 @@
 (function() {
-  'use strict';
+    'use strict';
+    
+    describe('service themovieDBSrv', function() {
+        var themovieDBSrv;
+        beforeEach(module('massiveinteracteDemo'));
+        
+        beforeEach(inject(function(_themovieDBSrv_) {
+            themovieDBSrv = _themovieDBSrv_;
+        }));
 
-  describe('service webDevTec', function() {
-    var webDevTec;
+        it('should be registered', function() {
+            expect(themovieDBSrv).not.toEqual(null);
+        });
 
-    beforeEach(module('massiveinteracteDemo'));
-    beforeEach(inject(function(_webDevTec_) {
-      webDevTec = _webDevTec_;
-    }));
+        describe('asyncSearch function', function() {
+            it('should exist', function() {
+                expect(themovieDBSrv.asyncSearch).not.toEqual(null);
+            });
 
-    it('should be registered', function() {
-      expect(webDevTec).not.toEqual(null);
+            it('should return array of object', function() {
+                var promise = themovieDBSrv.asyncSearch();
+                expect(promise).toEqual(jasmine.any(Object));
+
+                promise.then(function  (data) {
+                    expect(data[0]).toEqual(jasmine.any(Object));
+                    expect(data.length >= 1).toBeTruthy();
+                });
+             });
+        });
     });
-
-    describe('getTec function', function() {
-      it('should exist', function() {
-        expect(webDevTec.getTec).not.toEqual(null);
-      });
-
-      it('should return array of object', function() {
-        var data = webDevTec.getTec();
-        expect(data).toEqual(jasmine.any(Array));
-        expect(data[0]).toEqual(jasmine.any(Object));
-        expect(data.length > 5).toBeTruthy();
-      });
-    });
-  });
 })();

@@ -23,7 +23,7 @@
                 (function (deferred, data) {   
                     vm.movieResults = data.results;
                     deferred.resolve({results: data.results});
-                }).bind(this, deferred)
+                }).bind(vm, deferred)
             );
         }
     }

@@ -26,7 +26,7 @@
                 <article>
                     <h2>{{awesomeThing.title}}</h2>
                     <h3 ng-show="awesomeThing.overview.length">Overview</h3>
-                    <p>{{awesomeThing.overview}}</p>
+                    <p >{{awesomeThing.overview | limitTo: 400}}</p>
                 </article>
                 
                 
